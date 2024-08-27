@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* color: #d8323c;
+#0c0e0c 
+#eee9e9
+*/
+
+:root {
+  --font-sora: "Kanit", sans-serif;
+  --font-code: "Kanit", monospace;
+  --font-grotesk: "Space Grotesk", sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  /* background: #0c0e0c; */
+  scroll-behavior: smooth;
+}
+.active-link {
+  color: #d8323c; /* Red color for active state */
+  font-weight: bold; /* Optional: Make it bold */
+}
+
+.heading-container {
+  position: relative; /* Required for positioning the lines */
+  padding: 20px 0; /* Space for lines */
+}
+
+.line {
+  position: absolute;
+  width: 100%;
+  height: 4px; /* Height of the line */
+  background: linear-gradient(-225deg, white, #d8323c, white);
+  box-shadow: 0px 0px 12px white;
+  border-radius: 9px; /* Rounded corners for the line */
+  z-index: 1;
+}
+
+.top-line {
+  top: -10px; /* Position above the content */
+}
+
+.bottom-line {
+  bottom: -10px; /* Position below the content */
+  background: linear-gradient(-225deg, #d8323c, white, #d8323c); /* Different gradient for bottom line */
+}
+
+.glow {
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8); /* Red glow effect */
+}
+/* .unique-radial-gradient {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(var(--radial-gradient-background), 0.05) 0%,
+    transparent 60%
+  )
+  rgba(var(--solid-color-background), 1);
+} */
+.unique-radial-gradient {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(250,250,250, 0.05) 0%,
+    transparent 60%
+  )
+  rgba(15,15,15, 1);
+}
+.unique-linear-mask {
+  mask-image: linear-gradient(
+    -75deg,
+    white calc(var(--x) + 20%),
+    transparent calc(var(--x) + 30%),
+    white calc(var(--x) + 100%)
+  );
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    white calc(var(--x) + 20%),
+    transparent calc(var(--x) + 30%),
+    white calc(var(--x) + 100%)
+  );
+}
+
+.unique-linear-overlay {
+  background-image: linear-gradient(
+    -75deg,
+    rgba(255,255,255, 0.1) calc(var(--x) + 20%),
+    rgba(255,255,255, 0.5) calc(var(--x) + 25%),
+    rgba(255,255,255, 0.1) calc(var(--x) + 100%)
+  );
+  mask: linear-gradient(black, black) content-box,
+        linear-gradient(black, black);
+  -webkit-mask: linear-gradient(black, black) content-box,
+                 linear-gradient(black, black);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+.btn {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #eee9e9;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  transition: 1s;
+}
+
+.btn::before,
+.btn::after {
+  position: absolute;
+  background: #0c0e0c;
+  z-index: -1;
+  transition: 1s;
+  content: "";
+}
+
+.btn::before {
+  height: 50px;
+  width: 130px;
+}
+
+.btn::after {
+  width: 150px;
+  height: 30px;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn:hover::before {
+  width: 0px;
+  background: #0c0e0c;
+}
+
+.btn:hover::after {
+  height: 0px;
+  background: #0c0e0c;
+}
+
+.btn:hover {
+  color: #d8323c;
+  background: #0c0e0c;
+}
+/* Custom CSS for glowing effect and SVG visibility */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.7); /* Adjust color and size as needed */
+}
+
+.button-svg {
+  transition: opacity 0.1s;
+}
+/* Custom CSS for multi-colored border */
+.border-gradient {
+  border-image: linear-gradient(45deg, #f06, #ff0, #0f0, #00f); /* Adjust colors as needed */
+  border-image-slice: 1;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; /* Adjust as needed */
+}
+
+.button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem; /* Adjust as needed */
+}
+
+/* Hover effect for button */
+.button:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}
+.button-svg.invisible {
+  opacity: 0;
+}
+@media (max-width: 768px) {
+  .line {
+    height: 3px;
+    width: 100%; /* Adjust this value as needed */
+  }
+}
+
+@media (min-width: 768px) {
+  .line {
+    height: 4px;
+    width: 100%; /* Full width on larger screens */
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans text-n-1 text-base;
+  }
+}
+
+.rotate-45 {
+  @apply rotate-[45deg]
+}
+
+.rotate-90 {
+  @apply rotate-[90deg]
+}
+
+.rotate-135 {
+  @apply rotate-[135deg]
+}
+
+.rotate-180 {
+  @apply rotate-[180deg]
+}
+
+.rotate-225 {
+  @apply rotate-[225deg]
+}
+
+.rotate-270 {
+  @apply rotate-[270deg]
+}
+
+.rotate-315 {
+  @apply rotate-[315deg]
+}
+
+.rotate-360 {
+  @apply rotate-[360deg]
+}
+
+.-rotate-45 {
+  @apply rotate-[-45deg]
+}
+
+.-rotate-90 {
+  @apply rotate-[-90deg]
+}
+
+.-rotate-135 {
+  @apply rotate-[-135deg]
+}
+
+.-rotate-180 {
+  @apply rotate-[-180deg]
+}
+
+.-rotate-225 {
+  @apply rotate-[-225deg]
+}
+
+.-rotate-270 {
+  @apply rotate-[-270deg]
+}
+
+.-rotate-315 {
+  @apply rotate-[-315deg]
+}
+
+.-rotate-360 {
+  @apply rotate-[-360deg]
+}
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(7, 136, 211, 0.5) rgba(226, 65, 231, 0);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #ecc3c6;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee9e9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dab8ba;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #dbb3b5;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
